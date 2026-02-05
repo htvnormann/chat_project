@@ -9,11 +9,7 @@ pip install -r requirements.txt
 python manage.py collectstatic --no-input
 
 # Apply any outstanding database migrations
-python manage.py migrate
+python manage.py migrate --noinput
 
 # Create a superuser if it doesn't exist
-if [ -n "$DJANGO_SUPERUSER_USERNAME" ] && [ -n "$DJANGO_SUPERUSER_PASSWORD" ]; then
-    python manage.py createsuperuser --noinput || true
-else
-    echo "Superuser credentials not provided. Skipping superuser creation."
-fi
+python manage.py createsuperuser --noinput || true
